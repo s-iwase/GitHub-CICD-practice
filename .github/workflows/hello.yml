@@ -1,0 +1,11 @@
+name: Hello         # ワークフロー名
+on: 
+  push:             # push イベントをトリガー
+    branches:       # 対象のブランチを指定
+      - main        # 例: main ブランチ
+jobs:               # ジョブの定義
+  hello:            # ジョブID
+    runs-on: ubuntu-latest      # 実行環境
+    steps:                      # ステップの定義
+        - run: echo "Hello, world!"  # 実行するコマンド
+        - uses: actions/checkout@v4  # リポジトリのチェックアウト
