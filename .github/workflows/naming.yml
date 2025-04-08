@@ -3,10 +3,10 @@ run-name: Run by @${{ github.actor }}
 on: push
 jobs:
   print:
-  name: Super Useful Job
-  runs-on: ubuntu-latest
-  steps:
-    - name: Amazing Script
-      run: echo "Hello, world!"
-    - name: Another Amazing Script
-      run: echo "Hello, world!"
+    name: Super Useful Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Amazing Script
+        run: echo "Hello, world!"
+      - name: Another Amazing Script
+        run: echo "Hello, world!"
