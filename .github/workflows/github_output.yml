@@ -1,0 +1,16 @@
+name: GITHUB_OUTPUT         # ワークフロー名
+on: push
+jobs:
+  share1:
+    runs-on: ubuntu-latest
+    steps:
+      - id: source
+        run: echo "result=Hello" >> "$GITHUB_OUTPUT"  # GITHUB_OUTPUT に値を設定
+      - env:
+          RESULT: ${{ steps.source.outputs.result }}  # GITHUB_OUTPUT の値を環境変数に設定
+        run: echo "${RESULT}"  # 環境変数を出力
+  share2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "RESULT=Hello" >> "$GITHUB_ENV"  # GITHUB_ENV に値を設定
+      - run: echo "${RESULT}"  # 環境変数を出力
