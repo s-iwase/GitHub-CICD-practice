@@ -1,0 +1,9 @@
+name: Intermediate Environment variables         # ワークフロー名
+on: push             # push イベントをトリガー
+jobs:               # ジョブの定義
+  print:            # ジョブID
+    runs-on: ubuntu-latest      # 実行環境
+    env:
+      USERNAME: ${{ vars.USERNAME }}  # 環境変数の定義
+    steps:                      # ステップの定義
+        - run: echo "${ACTOR}"  # 実行するコマンド
