@@ -12,4 +12,4 @@ jobs:               # ジョブの定義
         - run: echo "${EXAMPLE}"  # 実行するコマンド
         - env:
             EXAMPLE: Defined by step level
-          run: echo ${{EXAMPLE}}  # ブランチの参照
+          run: echo "${EXAMPLE}"  # ブランチの参照
