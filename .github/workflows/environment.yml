@@ -1,15 +1,12 @@
-name: Override Environment variables         # ワークフロー名
+name: Intermediate Environment variables         # ワークフロー名
 on: 
   push:             # push イベントをトリガー
     branches:       # 対象のブランチを指定
       - main        # 例: main ブランチ
-env:               # 環境変数の定義
-  EXAMPLE: Defined by workflow level
 jobs:               # ジョブの定義
   print:            # ジョブID
     runs-on: ubuntu-latest      # 実行環境
+    env:
+      ACTOR: ${{ github.actor }}  # 環境変数の定義
     steps:                      # ステップの定義
-        - run: echo "${EXAMPLE}"  # 実行するコマンド
-        - env:
-            EXAMPLE: Defined by step level
-          run: echo "${EXAMPLE}"  # ブランチの参照
+        - run: echo "${ACTOR}"  # 実行するコマンド
