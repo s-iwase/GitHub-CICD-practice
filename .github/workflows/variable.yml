@@ -1,4 +1,4 @@
-name: Intermediate Environment variables         # ワークフロー名
+name: Variables        # ワークフロー名
 on: push             # push イベントをトリガー
 jobs:               # ジョブの定義
   print:            # ジョブID
@@ -6,4 +6,4 @@ jobs:               # ジョブの定義
     env:
       USERNAME: ${{ vars.USERNAME }}  # 環境変数の定義
     steps:                      # ステップの定義
-        - run: echo "${ACTOR}"  # 実行するコマンド
+        - run: echo "${USERNAME}"  # 実行するコマンド
