@@ -1,4 +1,16 @@
-name: Compare functions
+#name: Compare functions
+#on: push
+#jobs:
+#  compare:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - run: printenv | grep '_FUNC'
+#        env:
+#          CONTAINS_FUNC: ${{ contains('Hello', 'ell')}}
+#          ENDS_WITH_FUNC: ${{ endsWith('Hello', 'lo')}}
+#          STARTS_WITH_FUNC: ${{ startsWith('Hello', 'He')}}
+
+name: Generate functions
 on: push
 jobs:
   compare:
@@ -6,6 +18,5 @@ jobs:
     steps:
       - run: printenv | grep '_FUNC'
         env:
-          CONTAINS_FUNC: ${{ contains('Hello', 'ell')}}
-          ENDS_WITH_FUNC: ${{ endsWith('Hello', 'lo')}}
-          STARTS_WITH_FUNC: ${{ startsWith('Hello', 'He')}}
+          FORMAT_FUNC: ${{ format('{0}, {1}', 'Hello', 'World')}}
+          JOIN_FUNC: ${{ join(github.event.*.html_url, ',')}}
