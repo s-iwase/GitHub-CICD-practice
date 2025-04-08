@@ -1,0 +1,10 @@
+name: Contexts         # ワークフロー名
+on: 
+  push:             # push イベントをトリガー
+    branches:       # 対象のブランチを指定
+      - main        # 例: main ブランチ
+jobs:               # ジョブの定義
+  print:            # ジョブID
+    runs-on: ubuntu-latest      # 実行環境
+    steps:                      # ステップの定義
+        - run: echo "${{ github.actor }}"  # 実行するコマンド
