@@ -1,17 +1,17 @@
 name: Conditions
 on: push
 jobs:
-  #skip-or-run:
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - run: echo "Hello"
-  #      if: ${{ contains(github.run_id, '1') }} # 例: run_id に '1' が含まれている場合に実行
-  #fail:
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - run: exit 1 # 例: ステップを失敗させる
-  #    - run: echo "Hello"
-  #      if: ${{ failure() }} # 例: 失敗した場合に実行
+  skip-or-run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello"
+        if: ${{ contains(github.run_id, '1') }} # 例: run_id に '1' が含まれている場合に実行
+  fail:
+    runs-on: ubuntu-latest
+    steps:
+      - run: exit 1 # 例: ステップを失敗させる
+      - run: echo "Hello"
+        if: ${{ failure() }} # 例: 失敗した場合に実行
   skip-or-run2:
     if: ${{ github.actor == 'octocat'}}
     runs-on: ubuntu-latest
