@@ -1,0 +1,15 @@
+name: Environment variables         # ワークフロー名
+on: 
+  push:             # push イベントをトリガー
+    branches:       # 対象のブランチを指定
+      - main        # 例: main ブランチ
+jobs:               # ジョブの定義
+  run:            # ジョブID
+    runs-on: ubuntu-latest      # 実行環境
+    env:
+      Branch: main  # 環境変数の定義
+    steps:                      # ステップの定義
+        - run: echo "${BRANCH}"  # 実行するコマンド
+        - uses: actions/checkout@v4  # リポジトリのチェックアウト
+          with:
+            ref: ${{ env.BRANCH }}  # ブランチの参照
