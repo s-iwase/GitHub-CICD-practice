@@ -10,13 +10,23 @@
 #          ENDS_WITH_FUNC: ${{ endsWith('Hello', 'lo')}}
 #          STARTS_WITH_FUNC: ${{ startsWith('Hello', 'He')}}
 
-name: Generate functions
+#name: Generate functions
+#on: push
+#jobs:
+#  compare:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - run: printenv | grep '_FUNC'
+#        env:
+#          FORMAT_FUNC: ${{ format('{0}, {1}', 'Hello', 'World')}}
+#          JOIN_FUNC: ${{ join(github.event.*.html_url, ',')}}
+
+name: JSON functions
 on: push
 jobs:
-  compare:
+  dump:
     runs-on: ubuntu-latest
     steps:
-      - run: printenv | grep '_FUNC'
+      - run: echo "${CONTEXT}"
         env:
-          FORMAT_FUNC: ${{ format('{0}, {1}', 'Hello', 'World')}}
-          JOIN_FUNC: ${{ join(github.event.*.html_url, ',')}}
+          CONTEXT: ${{ toJson(github) }}
