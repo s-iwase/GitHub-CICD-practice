@@ -11,4 +11,4 @@ jobs:
           LITERAL_FALSE: ${{ false }}  # false
           LITERAL_STRING: ${{ 'string' }}  # string
           LITERAL_NUMBER: ${{ 123 }}  # 123
-          LITERAL_ARRAY: ${{ [1, 2, 3] }}  # [1, 2, 3]
+          LITERAL_ARRAY: ${{ '[1, 2, 3]' }}  # [1, 2, 3]
