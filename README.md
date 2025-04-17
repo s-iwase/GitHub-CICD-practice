@@ -1,1 +1,1 @@
-# my-repo
+# Github CI/CD の練習用レポジトリ
